@@ -1,3 +1,8 @@
+import reactLogo from '../assets/reactlogo.png'
+import djangoLogo from '../assets/django.svg'
+import postgreLogo from '../assets/LogoPostgreSql.png'
+import githubLogo from '../assets/github.png'
+
 const projectsData = {
   web: [
     {
@@ -9,10 +14,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
     {
@@ -24,10 +29,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
 
@@ -40,10 +45,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
 
@@ -56,10 +61,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
   ],
@@ -73,10 +78,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
         {
@@ -88,10 +93,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
         {
@@ -103,10 +108,10 @@ const projectsData = {
       image:
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c",
       tech: [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        reactLogo,
+        djangoLogo,
+        postgreLogo,
+        githubLogo,
       ],
     },
   ],
