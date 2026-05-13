@@ -50,7 +50,7 @@ const useBgAnimation = (canvasRef) => {
     }
 
     // Création des particules
-    const particleCount = 80;
+    const particleCount = 100;
     particlesRef.current = [];
 
     for (let i = 0; i < particleCount; i++) {
