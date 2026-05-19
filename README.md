@@ -1,16 +1,35 @@
-# React + Vite
+# ✨ Harena Sarobidy - Professional Portfolio V2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance, and fully responsive portfolio built with **React 19**, **Vite**, and **Framer Motion**. This project showcases my work, skills, and hackathon achievements with a focus on premium aesthetics and smooth user experiences.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## React Compiler
+- **🌐 Full Internationalization (i18n)**: Seamless language switching between **English** and **French** using React Context API.
+- **📱 Advanced Responsive Design**: 
+  - Precision-engineered for all devices (Mobile, Tablet, Desktop).
+  - Dynamic layouts that adapt at a **1200px breakpoint**.
+  - Mobile-first navigation with premium overlays.
+- **⚡ High Performance**: Built on **Vite** for near-instant load times and optimized asset delivery.
+- **🎨 Premium Animations**:
+  - Interactive background animations with dynamic particles.
+  - Smooth page transitions using **Framer Motion**.
+  - Responsive **Hackathons Slider** with auto-play, hover-pause, and custom pagination indicators.
+- **📂 Dynamic Data Management**: Centralized data structures for projects, skills, and achievements to ensure easy maintenance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🧔 Author
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Harena Sarobidy**  
+*Web & Mobile Developer*
+
+- **Email**: [misandratra.harena3@gmail.com](mailto:misandratra.harena3@gmail.com)
+- **Facebook**: [Harena Sarobidy](https://www.facebook.com/misandratraharena.rakotoarimanana)
+- **WhatsApp**: [+261 34 62 144 84](https://wa.me/261346214484)
+
+---
+
+## 📝 License
+
+© Copyright 2026, Harena Sarobidy. All Rights Reserved.

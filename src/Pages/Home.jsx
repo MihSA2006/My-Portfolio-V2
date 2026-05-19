@@ -3,6 +3,7 @@ import Me from '../components/Me';
 import MySkills from '../components/MySkills';
 import MyProjects from '../components/MyProjects';
 import Hackathons from '../components/Hackathons';
+import Contact from '../components/Contact';
 import NavBar from '../layout/NavBar';
 import NavigationSidebar from '../components/NavigationSidebar';
 import { useLanguage } from '../context/LanguageContext';
@@ -74,11 +75,7 @@ const Home = () => {
             case 1: return <MySkills />;
             case 2: return <MyProjects />;
             case 3: return <Hackathons />;
-            case 4: return (
-                <div className="w-screen h-screen flex-shrink-0 snap-start bg-white flex items-center justify-center">
-                    <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[100px] font-black uppercase tracking-tighter text-black">{t.contact.title}</h2>
-                </div>
-            );
+            case 4: return <Contact />;
             default: return null;
         }
     };

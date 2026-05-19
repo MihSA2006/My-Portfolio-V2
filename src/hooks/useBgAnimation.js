@@ -1,5 +1,34 @@
 import { useEffect, useRef } from "react";
 
+// Particle Class moved outside to comply with lint rules
+class Particle {
+  constructor(width, height) {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.radius = Math.random() * 2 + 1;
+  }
+
+  update(width, height) {
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (this.x < 0 || this.x > width) this.vx *= -1;
+    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+    this.x = Math.max(0, Math.min(width, this.x));
+    this.y = Math.max(0, Math.min(height, this.y));
+  }
+
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+    ctx.fill();
+  }
+}
+
 const useBgAnimation = (canvasRef) => {
   const particlesRef = useRef([]);
   const animationFrameRef = useRef(null);
@@ -11,51 +40,24 @@ const useBgAnimation = (canvasRef) => {
     const ctx = canvas.getContext("2d");
     const container = canvas.parentElement;
 
+    const initParticles = () => {
+      const isMobile = window.innerWidth <= 1200;
+      const particleCount = isMobile ? 40 : 100;
+      particlesRef.current = [];
+      for (let i = 0; i < particleCount; i++) {
+        particlesRef.current.push(new Particle(canvas.width, canvas.height));
+      }
+    };
+
     // Resize canvas
     const resizeCanvas = () => {
       canvas.width = container.offsetWidth;
       canvas.height = container.offsetHeight;
+      initParticles();
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-
-    // Classe Particle
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-        this.x = Math.max(0, Math.min(canvas.width, this.x));
-        this.y = Math.max(0, Math.min(canvas.height, this.y));
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-        ctx.fill();
-      }
-    }
-
-    // Création des particules
-    const particleCount = 100;
-    particlesRef.current = [];
-
-    for (let i = 0; i < particleCount; i++) {
-      particlesRef.current.push(new Particle());
-    }
 
     const maxDistance = 120;
 
@@ -63,8 +65,8 @@ const useBgAnimation = (canvasRef) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle) => {
-        particle.update();
-        particle.draw();
+        particle.update(canvas.width, canvas.height);
+        particle.draw(ctx);
       });
 
       for (let i = 0; i < particlesRef.current.length; i++) {
