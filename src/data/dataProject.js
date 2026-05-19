@@ -11,7 +11,7 @@ import githubLogo from '../assets/github.png'
 import tailwindLogo from '../assets/tailwind.png'
 import sassLogo from '../assets/sass-logo.png'
 import angularLogo from '../assets/angular-logo.png'
-import mongoDbLogo from '../assets/mongo-logo.png'
+import mongoDbLogo from '../assets/Mongo-logo.png'
 import nestJsLogo from '../assets/nestjs.svg'
 
 const projectsData = {
