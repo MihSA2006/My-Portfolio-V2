@@ -73,6 +73,10 @@ export const en = {
             message: "Your Message",
             submit: "Submit"
         },
+        messages: {
+            success: "Thank you! Your message has been sent.",
+            error: "Something went wrong. Please try again later."
+        },
         info: {
             email: {
                 label: "Email us",
