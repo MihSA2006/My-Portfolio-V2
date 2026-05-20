@@ -128,7 +128,7 @@ const MySkills = () => {
                 </div>
 
                 {/* Skills Container */}
-                <div className={isResponsive ? "mt-[400px] w-full max-w-5xl px-4 z-20 flex flex-wrap justify-center items-center gap-x-4 gap-y-10 flex-1 pb-20" : "absolute inset-0 z-0"}>
+                <div className={isResponsive ? "mt-[400px] w-full max-w-5xl px-4 z-20 flex flex-wrap justify-center items-center gap-x-4 gap-y-10 flex-1 pb-10" : "absolute inset-0 z-0"}>
                     <AnimatePresence mode="popLayout">
                         {filteredSkills.map((skill, index) => (
                             <motion.div

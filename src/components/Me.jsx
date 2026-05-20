@@ -54,7 +54,7 @@ const Me = () => {
             </div>
 
             {/* Bottom Content Area - Passion/Vision/Copyright */}
-            <div className="relative px-6 md:px-12 lg:px-32 pb-24 lg:pb-8 flex flex-col items-center lg:items-end">
+            <div className="relative px-6 md:px-12 lg:px-32 pb-12 lg:pb-8 flex flex-col items-center lg:items-end">
                 <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-12 lg:space-x-20 max-w-4xl w-full justify-center lg:justify-end">
                     <div className="flex flex-col max-w-xs text-center md:text-left">
                         <h3 className="text-[13px] font-bold uppercase tracking-[0.2em] mb-3 text-black">{t.me.passion.title}</h3>

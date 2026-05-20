@@ -44,7 +44,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="relative w-full min-h-screen lg:h-screen bg-white text-black lg:overflow-hidden font-sans flex flex-col justify-center items-center px-6 md:px-12 lg:px-24 py-24 lg:py-0">
+        <div className="relative w-full min-h-[calc(100vh-60px)] lg:h-screen bg-white text-black lg:overflow-hidden font-sans flex flex-col justify-center items-center px-6 md:px-12 lg:px-24 py-12 lg:py-0">
 
             {/* Watermark Background */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">

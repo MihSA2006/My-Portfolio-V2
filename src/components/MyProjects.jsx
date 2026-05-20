@@ -56,7 +56,7 @@ const MyProjects = () => {
                 </div>
             )}
             <div className="relative z-10 w-full h-full">
-                <div className={`w-full min-h-[100vh] flex ${isResponsive ? 'flex-col items-center pb-32' : 'relative h-screen'}`}>
+                <div className={`w-full min-h-[100vh] flex ${isResponsive ? 'flex-col items-center pb-12' : 'relative h-screen'}`}>
 
                     {/* TYPES - Horizontal bottom bar on mobile, vertical sidebar on desktop */}
                     <div className={`${isResponsive ? 'absolute bottom-10 left-4 z-[100] flex-row gap-4' : 'flex flex-col items-center gap-6 w-[5%] p-2 justify-center'}`}>

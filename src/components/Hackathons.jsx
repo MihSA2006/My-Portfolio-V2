@@ -52,7 +52,7 @@ const Hackathons = () => {
 
 
     return (
-        <div className="relative w-screen min-h-screen bg-white flex flex-col items-center justify-center py-12 lg:py-20 px-6 overflow-hidden">          
+        <div className="relative w-full min-h-[calc(100vh-80px)] lg:min-h-screen bg-white flex flex-col items-center justify-start lg:justify-center py-10 lg:py-20 px-6 overflow-hidden">          
             {/* Cards Slider/Container */}
             <div className="relative w-full max-w-[1600px] flex justify-center items-center">
                 {/* Connecting Dotted Line - Desktop Only */}
@@ -75,7 +75,7 @@ const Hackathons = () => {
                         </button>
                     )}
 
-                    <div className={`flex ${isResponsive ? 'w-[85%] overflow-hidden' : ''} justify-center items-center`}>
+                    <div className={`flex ${isResponsive ? 'w-[85%] overflow-hidden py-10' : ''} justify-center items-center`}>
                         <AnimatePresence mode="wait">
                             <motion.div 
                                 key={activeIndex}
@@ -131,7 +131,7 @@ const Hackathons = () => {
                                             </div>
 
                                             {/* Prize Badge Overlay */}
-                                            <div className="absolute -top-3 -right-3 bg-white text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-2xl z-20">
+                                            <div className="absolute -top-2 -right-2 bg-black text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-2xl z-20">
                                                 {item.prize}
                                             </div>
                                         </div>
