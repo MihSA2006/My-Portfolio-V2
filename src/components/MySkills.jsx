@@ -58,7 +58,7 @@ const MySkills = () => {
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: -100, opacity: 0 }}
-                        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 flex flex-col space-y-6 z-[110]"
+                        className="absolute left-4 md:left-8 bottom-6 -translate-y-1/2 flex flex-col space-y-6 z-[110]"
                     >
                         {categories.map((cat) => (
                             <button
@@ -75,10 +75,10 @@ const MySkills = () => {
             </AnimatePresence>
 
             {/* Content Wrapper */}
-            <div className={`relative flex flex-col items-center ${isResponsive ? 'justify-start pt-16 overflow-y-auto overflow-x-hidden pb-10' : 'justify-center'} w-full h-full transition-all duration-700 ${isResponsive ? 'scale-[0.85] md:scale-100' : ''}`}>
+            <div className={`relative flex flex-col items-center ${isResponsive ? 'justify-start pt-10 overflow-y-auto overflow-x-hidden pb-10' : 'justify-center'} w-full h-full transition-all duration-700 ${isResponsive ? 'scale-[0.85] md:scale-100' : ''}`}>
                 
                 {/* Header - Changes based on hover state */}
-                <div className={`${isResponsive ? 'fixed top-[22rem] scale-90' : 'absolute bottom-48 scale-100'} z-20 text-center max-w-md bg-white h-44 rounded-t-full w-96 transition-all duration-500 ease-in-out ${hoveredSkill ? 'scale-110' : ''} ${isResponsive && !hoveredSkill ? 'opacity-0 pointer-events-none' : ''}`}>
+                <div className={`${isResponsive ? 'fixed top-[18rem] scale-90' : 'absolute bottom-48 scale-100'} z-20 text-center max-w-md bg-white h-44 rounded-t-full w-96 transition-all duration-500 ease-in-out ${hoveredSkill ? 'scale-110' : ''} ${isResponsive && !hoveredSkill ? 'opacity-0 pointer-events-none' : ''}`}>
                     <h1
                         className={`mt-12 font-bold uppercase tracking-tighter ${isResponsive ? 'text-2xl' : 'text-4xl'} text-black`}
                     >
@@ -94,7 +94,7 @@ const MySkills = () => {
                 </div>
 
                 {/* Main Skill Circle - Scaling container for responsive */}
-                <div className={`${isResponsive ? 'fixed top-24' : 'relative'} flex flex-col items-center justify-center z-10 transition-transform duration-500 ${isResponsive ? 'scale-[0.55] sm:scale-[0.7]' : ''}`}>
+                <div className={`${isResponsive ? 'fixed top-16' : 'relative'} flex flex-col items-center justify-center z-10 transition-transform duration-500 ${isResponsive ? 'scale-[0.55] sm:scale-[0.7]' : ''}`}>
                     <div className={`absolute w-[420px] h-[420px] rounded-full animate-spin-slow 
                         bg-[conic-gradient(from_0deg,transparent,gray,transparent,transparent)] 
                         blur-md opacity-70 transition-all duration-700 ${hoveredSkill ? 'scale-110 opacity-100' : 'scale-100'}`}>

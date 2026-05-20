@@ -56,8 +56,8 @@ const Contact = () => {
             <div className="relative z-10 w-full max-w-7xl flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
                 {/* Left Side: Info */}
-                <div className="w-full lg:w-1/2 space-y-12 flex flex-col items-center lg:items-start text-center lg:text-left">
-                    <div className="space-y-4 flex flex-col items-center lg:items-start">
+                <div className="w-full lg:w-1/2 space-y-8 lg:space-y-12 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="space-y-3 lg:space-y-4 flex flex-col items-center lg:items-start">
                         <div className="inline-flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full border border-gray-200">
                             <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
                             <span className="text-[10px] font-black uppercase tracking-widest text-black">{t.contact.title}</span>
@@ -116,7 +116,7 @@ const Contact = () => {
                 </div>
 
                 {/* Right Side: Form */}
-                <form onSubmit={onSubmit} className="w-full lg:w-1/2 bg-gray-50 p-6 md:p-12 rounded-3xl border border-gray-100 shadow-sm space-y-6">
+                <form onSubmit={onSubmit} className="w-full lg:w-1/2 bg-gray-50 p-6 md:p-12 rounded-3xl border border-gray-100 shadow-sm space-y-4 lg:space-y-6">
                     <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase tracking-widest text-gray-400">{t.contact.fields.name}</label>
                         <input
@@ -151,7 +151,7 @@ const Contact = () => {
                     <button 
                         type="submit"
                         disabled={status === "loading"}
-                        className={`w-full bg-black text-white py-5 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition-all active:scale-[0.98] mt-4 shadow-xl flex justify-center items-center gap-3 disabled:bg-gray-400 disabled:cursor-not-allowed`}
+                        className={`w-full bg-black text-white py-4 lg:py-5 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-gray-800 transition-all active:scale-[0.98] mt-2 lg:mt-4 shadow-xl flex justify-center items-center gap-3 disabled:bg-gray-400 disabled:cursor-not-allowed`}
                     >
                         {status === "loading" ? (
                             <>

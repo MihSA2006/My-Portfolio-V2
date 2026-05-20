@@ -81,7 +81,7 @@ const Home = () => {
     };
 
     return (
-        <div className="relative w-full h-screen bg-white text-black overflow-hidden font-sans">
+        <div className="relative w-full h-[100dvh] bg-white text-black overflow-hidden font-sans">
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 pointer-events-none opacity-80"
@@ -91,7 +91,7 @@ const Home = () => {
 
             <div
                 ref={scrollContainerRef}
-                className="flex w-full h-screen overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory"
+                className="flex w-full h-[100dvh] overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory"
                 onWheel={handleWheel}
                 style={{ scrollBehavior: 'smooth' }}
             >
@@ -100,7 +100,7 @@ const Home = () => {
                         key={index}
                         id={`section-${index}`}
                         data-index={index}
-                        className="flex-shrink-0 w-screen h-screen snap-start page-section overflow-y-auto overflow-x-hidden"
+                        className="flex-shrink-0 w-screen h-full snap-start page-section overflow-y-auto overflow-x-hidden"
                     >
                         {renderSection(index)}
                     </div>
