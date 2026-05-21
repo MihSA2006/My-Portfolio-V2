@@ -21,11 +21,15 @@ const MyProjects = () => {
     const isResponsive = windowWidth <= 1200;
 
     // Merge translated projects with tech icons from original data
-    const translatedProjects = (type === "web" ? t.projects.web : t.projects.mobile).map((project, index) => ({
-        ...project,
-        image: projectsData[type][index]?.image || "",
-        tech: projectsData[type][index]?.tech || []
-    }));
+    const translatedProjects = (type === "web" ? t.projects.web : t.projects.mobile).map((project) => {
+        const originalProject = projectsData[type].find(p => p.id === project.id);
+        return {
+            ...project,
+            image: originalProject?.image || "",
+            videoUrl: originalProject?.url || "",
+            tech: originalProject?.tech || []
+        };
+    });
 
     const activeProject = translatedProjects[activeIndex];
 
@@ -42,6 +46,13 @@ const MyProjects = () => {
         setActiveIndex((prev) =>
             prev === 0 ? translatedProjects.length - 1 : prev - 1
         );
+    };
+
+    const getYouTubeId = (url) => {
+        if (!url) return null;
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
     };
 
     return (
@@ -116,17 +127,17 @@ const MyProjects = () => {
                             </motion.div>
                         </AnimatePresence>
 
-                        <div className={isResponsive ? 'w-full flex justify-center' : ''}>
+                        {/* <div className={isResponsive ? 'w-full flex justify-center' : ''}>
                             <button className="relative inline-flex gap-2 px-12 py-6 rounded-sm bg-gradient-to-r from-black to-gray-800 text-white font-semibold shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl active:scale-95 mt-4 items-center">
                                 <span className="absolute top-4 left-5 text-white uppercase tracking-widest text-[8px]">{t.projects.demo}</span>
                                 <ArrowTopRightOnSquareIcon className="w-5 h-5 text-white absolute top-2 right-3" />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* ACTIVE PROJECT IMAGE PREVIEW - Desktop Only */}
                     {!isResponsive && (
-                        <div className="absolute right-[15%] top-[22%] w-[38%] h-[44%] z-0 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 bg-gray-50">
+                        <div className="absolute right-[15%] top-[22%] w-[38%] h-[44%] z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 bg-black">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={activeProject.id}
@@ -136,12 +147,28 @@ const MyProjects = () => {
                                     transition={{ duration: 0.8, ease: "easeOut" }}
                                     className="w-full h-full"
                                 >
-                                    <div className="absolute inset-0 via-transparent to-transparent z-10 w-1/4"></div>
-                                    <img 
-                                        src={activeProject.image} 
-                                        alt={activeProject.title} 
-                                        className="w-full h-full object-cover"
-                                    />
+                                    {activeProject.videoUrl ? (
+                                        <iframe
+                                            key={`video-${activeProject.id}`}
+                                            width="100%"
+                                            height="100%"
+                                            src={`https://www.youtube.com/embed/${getYouTubeId(activeProject.videoUrl)}?rel=0&modestbranding=1&enablejsapi=1`}
+                                            title={activeProject.title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen
+                                            className="w-full h-full"
+                                        ></iframe>
+                                    ) : (
+                                        <>
+                                            <div className="absolute inset-0 via-transparent to-transparent z-10 w-1/4"></div>
+                                            <img 
+                                                src={activeProject.image} 
+                                                alt={activeProject.title} 
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </>
+                                    )}
                                 </motion.div>
                             </AnimatePresence>
                         </div>
@@ -184,8 +211,22 @@ const MyProjects = () => {
                                                         {project.title}
                                                     </h3>
                                                 </div>
-                                                <div className="relative h-full w-full">
-                                                    <img src={project.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                                                <div className="relative h-full w-full bg-black">
+                                                    {isResponsive && project.videoUrl ? (
+                                                        <iframe
+                                                            key={`video-mobile-${project.id}`}
+                                                            width="100%"
+                                                            height="100%"
+                                                            src={`https://www.youtube.com/embed/${getYouTubeId(project.videoUrl)}?rel=0&modestbranding=1&enablejsapi=1`}
+                                                            title={project.title}
+                                                            frameBorder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            allowFullScreen
+                                                            className="w-full h-full"
+                                                        ></iframe>
+                                                    ) : (
+                                                        <img src={project.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                                                    )}
                                                 </div>
                                             </motion.div>
                                         ))}
