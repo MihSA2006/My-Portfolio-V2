@@ -34,6 +34,9 @@ const Me = () => {
                             <svg className="w-5 h-5 text-gray-600 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             <span className="text-base md:text-xl text-gray-600 font-light tracking-widest uppercase">{t.me.role}</span>
                         </div>
+                        <p className="mt-6 text-gray-600 leading-relaxed text-sm md:text-xl tracking-tighter drop-shadow-sm transition-all duration-500">
+                            {t.me.aboutme}
+                        </p>
                     </div>
 
                     <div className="hidden lg:block xl:w-1/3"></div>
@@ -74,7 +77,7 @@ const Me = () => {
                 <div className="absolute left-6 top-0 -translate-y-full -rotate-90 origin-left text-[9px] uppercase font-bold tracking-[0.4em] text-gray-400 hidden xl:block whitespace-nowrap">
                     {t.me.copyright}
                 </div>
-                
+
                 {/* Mobile copyright - visible on small screens */}
                 <div className="mt-12 text-[10px] uppercase font-bold tracking-[0.2em] text-gray-400 xl:hidden">
                     {t.me.copyright}
