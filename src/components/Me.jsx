@@ -35,6 +35,24 @@ const Me = () => {
                             <CommandLineIcon className="w-5 h-5 text-gray-600 md:w-6 md:h-6" />
                             <span className="text-base md:text-xl text-gray-600 font-light tracking-widest uppercase">{t.me.role}</span>
                         </div>
+
+                        {/* Tech Loader Animation */}
+                        <div className="mt-5 flex justify-center lg:justify-start">
+                            <div className="tech-card">
+                                <div className="tech-loader">
+                                    <p>{t.me.use}</p>
+                                    <div className="tech-words">
+                                        <span className="tech-word">React</span>
+                                        <span className="tech-word">Angular</span>
+                                        <span className="tech-word">Nest</span>
+                                        <span className="tech-word">Express</span>
+                                        <span className="tech-word">Django</span>
+                                        <span className="tech-word">React</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <p className="mt-6 text-gray-600 leading-relaxed text-sm md:text-xl tracking-tighter drop-shadow-sm transition-all duration-500">
                             {t.me.aboutme}
                         </p>

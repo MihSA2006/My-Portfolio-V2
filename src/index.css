@@ -38,3 +38,185 @@
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* --- Tech Loader Component CSS (Me.jsx) --- */
+.tech-card {
+  background: none;
+  padding: 0 1.5rem;
+  display: inline-block;
+}
+
+.tech-loader {
+  color: rgb(160, 160, 160);
+  font-family: "Poppins", "Outfit", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  box-sizing: content-box;
+  height: 38px;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.tech-loader p {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.tech-words {
+  overflow: hidden;
+  position: relative;
+  height: 38px;
+}
+
+.tech-words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
+  pointer-events: none;
+}
+
+.tech-word {
+  display: block;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 8px;
+  color: #956afa;
+  font-weight: 700;
+  animation: spin_4991 5s infinite;
+}
+
+@keyframes spin_4991 {
+  10% {
+    -webkit-transform: translateY(-102%);
+    transform: translateY(-102%);
+  }
+
+  25% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+
+  35% {
+    -webkit-transform: translateY(-202%);
+    transform: translateY(-202%);
+  }
+
+  50% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+
+  60% {
+    -webkit-transform: translateY(-302%);
+    transform: translateY(-302%);
+  }
+
+  75% {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+  }
+
+  85% {
+    -webkit-transform: translateY(-402%);
+    transform: translateY(-402%);
+  }
+
+  100% {
+    -webkit-transform: translateY(-400%);
+    transform: translateY(-400%);
+  }
+}
+
+/* --- Hackathons Blob Card Hover Effect (Hackathons.jsx) --- */
+.hackathon-card {
+  position: relative;
+  border-radius: 24px;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s ease;
+}
+
+.hackathon-card:hover {
+  box-shadow: 0 30px 60px rgba(149, 106, 250, 0.2), 0 20px 40px rgba(0,0,0,0.1);
+  transform: translateY(-8px);
+}
+
+.hackathon-card-bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  overflow: hidden;
+  outline: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .hackathon-card-bg {
+    padding: 2.5rem;
+  }
+}
+
+.hackathon-card-blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #956afa, #ff0000, #956afa);
+  opacity: 0;
+  filter: blur(16px);
+  transition: opacity 0.5s ease;
+}
+
+.hackathon-card:hover .hackathon-card-blob {
+  opacity: 1;
+  animation: blob-bounce 5s infinite ease;
+}
+
+@keyframes blob-bounce {
+  0% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+  }
+
+  50% {
+    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+  }
+
+  75% {
+    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -100%) translate3d(0, 0, 0);
+  }
+}
