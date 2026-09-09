@@ -16,7 +16,7 @@ export const en = {
   me: {
     name: "Harena",
     lastName: "Sarobidy",
-    role: "Web & Mobile Developer ...",
+    role: "Full Stack Web & Mobile Developer ...",
     aboutme:
       "I design and build modern, high-performance, and scalable web and mobile applications, delivering solutions across both the frontend and backend.",
     passion: {

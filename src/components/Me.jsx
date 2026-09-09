@@ -2,6 +2,7 @@ import React from 'react';
 import profilePic from '../assets/profile.png';
 import { useLanguage } from '../context/LanguageContext';
 import { socialLinks } from '../data/dataSocials';
+import { CommandLineIcon } from '@heroicons/react/24/outline';
 
 const Me = () => {
     const { t } = useLanguage();
@@ -31,7 +32,7 @@ const Me = () => {
                             {t.me.name}<br />{t.me.lastName}
                         </h1>
                         <div className="flex items-center justify-center lg:justify-start mt-6 space-x-3">
-                            <svg className="w-5 h-5 text-gray-600 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <CommandLineIcon className="w-5 h-5 text-gray-600 md:w-6 md:h-6" />
                             <span className="text-base md:text-xl text-gray-600 font-light tracking-widest uppercase">{t.me.role}</span>
                         </div>
                         <p className="mt-6 text-gray-600 leading-relaxed text-sm md:text-xl tracking-tighter drop-shadow-sm transition-all duration-500">

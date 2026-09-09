@@ -13,35 +13,34 @@ const Hackathons = () => {
 
     const isMobile = windowWidth < 768;
     const isTablet = windowWidth >= 768 && windowWidth <= 1200;
-    const isResponsive = windowWidth <= 1200;
-
     // Number of cards to show based on device
-    const cardsPerView = isMobile ? 1 : (isTablet ? 2 : t.hackathons.items.length);
+    const cardsPerView = isMobile ? 1 : (isTablet ? 2 : 3);
+    const pageCount = Math.ceil(t.hackathons.items.length / cardsPerView);
 
     const nextCard = useCallback(() => {
         setActiveIndex((prev) => {
-            const nextIdx = prev + cardsPerView;
-            return nextIdx >= t.hackathons.items.length ? 0 : nextIdx;
+            const currentPage = Math.floor(prev / cardsPerView);
+            return ((currentPage + 1) % pageCount) * cardsPerView;
         });
-    }, [cardsPerView, t.hackathons.items.length]);
+    }, [cardsPerView, pageCount]);
 
     const prevCard = useCallback(() => {
         setActiveIndex((prev) => {
-            const prevIdx = prev - cardsPerView;
-            return prevIdx < 0 ? Math.max(0, t.hackathons.items.length - cardsPerView) : prevIdx;
+            const currentPage = Math.floor(prev / cardsPerView);
+            return ((currentPage - 1 + pageCount) % pageCount) * cardsPerView;
         });
-    }, [cardsPerView, t.hackathons.items.length]);
+    }, [cardsPerView, pageCount]);
 
     // Auto-play logic
     useEffect(() => {
-        if (!isResponsive || isHovered) return;
+        if (isHovered) return;
         
         const interval = setInterval(() => {
             nextCard();
-        }, 3000);
+        }, 2000);
 
         return () => clearInterval(interval);
-    }, [isResponsive, isHovered, nextCard]);
+    }, [isHovered, nextCard]);
 
     useEffect(() => {
         const handleResize = () => setWindowWidth(window.innerWidth);
@@ -56,26 +55,27 @@ const Hackathons = () => {
             {/* Cards Slider/Container */}
             <div className="relative w-full max-w-[1600px] flex justify-center items-center">
                 {/* Connecting Dotted Line - Desktop Only */}
-                {!isResponsive && (
+                {!isMobile && (
                     <div className="absolute top-[45%] left-0 w-full h-[2px] bg-transparent border-t-2 border-dashed border-gray-200 z-0" />
                 )}
 
                 <div 
-                    className={`relative z-10 flex ${isResponsive ? 'flex-row items-center w-full justify-between' : 'flex-row space-x-12 px-10 items-center justify-center w-full'}`}
+                    className="relative z-10 flex flex-row items-center w-full justify-between"
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    {/* Pagination Arrows - Responsive Only */}
-                    {isResponsive && (
+                    {/* Pagination Arrows */}
+                    {
                         <button 
                             onClick={prevCard} 
                             className="z-50 p-3 bg-white/80 backdrop-blur-md rounded-full shadow-2xl border border-gray-100 transition-all active:scale-90"
+                            aria-label="Previous hackathons"
                         >
                              <ChevronLeftIcon className="w-5 h-5 text-black" />
                         </button>
-                    )}
+                    }
 
-                    <div className={`flex ${isResponsive ? 'w-[85%] overflow-hidden py-10' : ''} justify-center items-center`}>
+                    <div className="flex w-[85%] overflow-hidden py-10 justify-center items-center">
                         <AnimatePresence mode="wait">
                             <motion.div 
                                 key={activeIndex}
@@ -83,14 +83,14 @@ const Hackathons = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.5 }}
-                                className={`flex ${isResponsive ? 'gap-4 w-full justify-center' : 'gap-12'}`}
+                                className={`flex gap-4 lg:gap-12 w-full justify-center ${isMobile ? 'flex-col items-center' : 'flex-row items-stretch'}`}
                             >
                                 {t.hackathons.items.slice(activeIndex, activeIndex + cardsPerView).map((item, index) => {
                                     const realIndex = activeIndex + index;
                                     return (
                                         <div
                                             key={realIndex}
-                                            className={`relative bg-white border border-gray-100 rounded-2xl md:rounded-[32px] p-6 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] w-full max-w-[320px] lg:max-w-[360px] min-h-[480px] lg:h-[550px] flex flex-col justify-between transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] ${isResponsive ? '' : 'hover:-translate-y-4'}`}
+                                            className="relative bg-white border border-gray-100 rounded-2xl md:rounded-[32px] p-6 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] w-full max-w-[320px] lg:max-w-[360px] min-h-[480px] lg:h-[550px] flex flex-col justify-between transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] hover:-translate-y-2"
                                         >
                                             <div className="space-y-6 lg:space-y-8">
                                                 {/* Card Icon Area */}
@@ -141,23 +141,24 @@ const Hackathons = () => {
                         </AnimatePresence>
                     </div>
 
-                    {isResponsive && (
+                    {
                         <button 
                             onClick={nextCard} 
                             className="z-50 p-3 bg-white/80 backdrop-blur-md rounded-full shadow-2xl border border-gray-100 transition-all active:scale-90"
+                            aria-label="Next hackathons"
                         >
                              <ChevronRightIcon className="w-5 h-5 text-black" />
                         </button>
-                    )}
+                    }
                 </div>
 
                 {/* Pagination Indicators - Lines Only */}
 
             </div>
 
-                                    {isResponsive && (
+                                    {
                     <div className="flex justify-center gap-3 mt-10">
-                        {Array.from({ length: Math.ceil(t.hackathons.items.length / cardsPerView) }).map((_, i) => (
+                        {Array.from({ length: pageCount }).map((_, i) => (
                             <div 
                                 key={i}
                                 onClick={() => setActiveIndex(i * cardsPerView)}
@@ -165,7 +166,7 @@ const Hackathons = () => {
                             />
                         ))}
                     </div>
-                )}
+                }
             {/* Global Social Links pattern copied from Me.jsx */}
              <div className="flex lg:absolute lg:right-6 md:lg:right-10 lg:top-1/2 lg:-translate-y-1/2 lg:flex-col space-x-8 lg:space-x-0 lg:space-y-8 z-[100] mt-12 lg:mt-0 justify-center">
                 <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-black transition-all duration-300 hover:scale-110">
